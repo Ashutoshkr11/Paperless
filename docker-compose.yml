@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  dsa-vault:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - APP_PASSCODE=${APP_PASSCODE}
+      - LLAMA_API_KEY=${LLAMA_API_KEY}
+      - QWEN_API_KEY=${QWEN_API_KEY}
+    volumes:
+      - ./:/app
+    restart: unless-stopped
